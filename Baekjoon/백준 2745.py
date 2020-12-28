@@ -20,3 +20,7 @@ for i in n[::-1]:
     answer += target * (b**cnt)
     cnt+=1
 print(answer)
+
+# 최고 답안
+n, b= input().split()
+print(int(n, int(b)))
