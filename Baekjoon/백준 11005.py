@@ -20,6 +20,7 @@ while n > 0:
 
   if temp >= 10:
     temp = chr(temp + 55)
+  else:
     temp = str(temp)
   answer = temp + answer
 
