@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10**6)
 
 n, m = map(int, sys.stdin.readline().split())
 arr = [i for i in range(n+1)]
@@ -25,7 +26,8 @@ def union_(u, v):
     else:
         return arr[u]
 
-# 또 다른 틀린 함수 (이유 모름)
+# 또 다른 함수 (그냥 쓰면 틀리는 이유: 재귀가 너무 많이 돌면 터짐)
+# sys.setrecursionlimit(10**6)를 추가해주면 맞음.
 def union_(u, v):
     u = get_parent(u)
     v = get_parent(v)
