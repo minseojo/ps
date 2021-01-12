@@ -1,32 +1,30 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int arr[11111]{ -1 , -1 };
+int arr[10001] = {-1, -1 };
 
 int main() {
 	int m, n;
 	cin >> m >> n;
-	for (int i = 2; i <= 10000; i++) arr[i] = i;
-
-	for (int i = 2; i <= 10000; i++) {
-		for (int j = i + i; j <= 10000; j += i) {
+	
+	for(int i=2; i<=10001; i++) {
+		for(int j=i+i; j<=10001; j+=i) {
 			arr[j] = -1;
 		}
 	}
-
-	int sum = 0, MIN = -1;
-	for (int i = m; i <= n; i++) {
-		if (arr[i] != -1) {
-			if (MIN == -1)  MIN = arr[i];
-			sum += arr[i];
+	int cnt=0, mn=0, sum=0, flag=0;
+	for(int i=m; i<=n; i++) {
+		if(arr[i]!=-1) {
+			if(flag!=1) mn = i;
+			sum+=i;
+			flag=1;
 		}
 	}
-	if (MIN != -1) {
+	if(flag==1) {
 		cout << sum << endl;
-		cout << MIN;
+		cout << mn;
 	}
-	else cout << MIN;
-
+	else cout << -1;
+	
 	return 0;
 }
